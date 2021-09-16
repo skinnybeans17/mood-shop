@@ -1,29 +1,47 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <link rel='stylesheet' href='styles.css'>
-    <title>Title of the document</title>
-  </head>
-
-  <body>
-    <header class='page-header'>
-  <h4>The Mood Shop</h4>
-  <nav>
-    <ul>
-      <li><a href="#">Home</a></li>
-      <li><a href="#">About</a></li>
-      <li><a href="#">Cart</a></li>
-    </ul>
-  </nav>
-</header>
-<div class='items' id='items'>
-    <!-- Display moods here -->
-</div>
-	<script src="scripts.js" type="module"></script>
-<footer>
-</footer>
-<div>
-  <img src='images/...' width=300 height=300>
-</div>
-  </body>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Groceries</title>
+  <link rel='stylesheet' href='./resources/css/styles.css'>
+</head>
+<body>
+  <header class='page-header'>
+    <h4>The Mood Shop</h4>
+    <nav>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Cart</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main class='items' id='items'>
+    <!--
+      Display moods here
+     -->
+  </main>
+  <footer>
+    <!-- Footer -->
+  </footer>
+  <script src='./resources/js/scripts.js' type="module"></script>
+	<script>
+		const cart = [ ]
+		
+		function addItem(name, price){
+			cart.push(name)
+		}
+		
+		function showItems() {
+			console.log(cart)
+		}
+		
+		addItem('Apple', 0.99)
+		addItem('Orange', 1.29)
+		addItem('Opinion', 0.02)
+		
+		showItems()
+	</script>
+</body>
 </html>
