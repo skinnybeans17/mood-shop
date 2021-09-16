@@ -23,24 +23,96 @@
      -->
   </main>
   <footer>
-    <!-- Footer -->
+    <ul id='item-list'>
+      <!-- cart items -->
+    </ul>
   </footer>
   <script src='./resources/js/scripts.js' type="module"></script>
 	<script>
-		const cart = [ ]
+		const cart = []
 		
-		function addItem(name, price){
-			cart.push(name)
+		const a = 999
+		const b = 888
+		const greeting = "Hello"
+		const place = 'world'
+		
+		const obj = { a, b, greeting, place }
+		
+		console.log(obj)
+		console.log('*************')
+		
+		function addItem(name, price) {
+			for (let 1 = 0; i < cart.length; i += 1) {
+				if (cart[i].name === name) {
+					cart[i].qty += 1
+					return
+				}
+			}
+			
+			
+			const item = { name, price, qty: 1 }
+			cart.push(item)
 		}
 		
 		function showItems() {
-			console.log(cart)
+			const qty = getQty()
+			console.log('You have ${qty} items in your cart')
+			
+			for (let i = 0; i < cart.length; i += 1) {
+				console.log('- ${cart[i].name} $${cart[i].price} x ${cart[i].qty}'}
+			}
+			
+			let total = 0
+			for (let i = 0; i < cart.length; i += 1) {
+				total += cart[i].price * cart[i].qty
+			}
+			
+			console.log('Total in cart: $)
+		}
+				    
+		function getQty() {
+			let qty = 0
+			for (let i = 0; i < cart.length; i += 1) {
+				qty += cart[i].qty
+			}
+			return qty
+			}
+			
+		function getTotal() {
+			let total = 0
+			for (let i = 0; i < cart.length; i += 1) {
+				total += cart[i].price * cart[i].qty
+			}
+			
+			return total.toFixed(2)
+		}
+			
+		function removeItem(name, qty = 0) {
+			for (let i = 0; i < cart.length; i += 1) {
+				if (cart[i].name === name) {
+					if (qty > 0) {
+						cart[i].qty -= qty
+					}
+					if (cart[i].qty < 1 || qty === 0) {
+						cart.splice(i, 1)
+					}
+					return
+				}
+			}
 		}
 		
 		addItem('Apple', 0.99)
 		addItem('Orange', 1.29)
 		addItem('Opinion', 0.02)
+		addItem('Apple', 0.99)
+		addItem('Frisbee', 9.92)
+		addItem('Apple', 0.99)
+		addItem('Orange', 1.29)
 		
+		showItems()
+		
+		removeItem('Frisbee')
+			   
 		showItems()
 	</script>
 </body>
